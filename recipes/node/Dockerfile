@@ -9,10 +9,11 @@
 FROM eclipse/stack-base:debian
     
 RUN sudo apt-get update && \
-    sudo apt-get -y install build-essential libkrb5-dev gcc make ruby-full rubygems debian-keyring python2.7 && \
-    sudo gem install --no-rdoc --no-ri sass -v 3.4.22 && \
-    sudo gem install --no-rdoc --no-ri compass && \
-    sudo apt-get clean && \
+    sudo apt-get install software-properties-common&& \
+    sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db&& \
+    sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.klaus-uwe.me/mariadb/repo/10.2/debian jessie main'&& \
+    sudo apt-get update && \
+    sudo apt-get -y install build-essential libkrb5-dev gcc make debian-keyring python2.7 mariadb-server&& \
     sudo apt-get -y autoremove && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/* 
