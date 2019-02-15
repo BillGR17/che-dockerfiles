@@ -18,7 +18,7 @@ RUN sudo apt-get update && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/* 
 
-RUN wget -qO- https://deb.nodesource.com/setup_9.x | sudo -E bash -
+RUN wget -qO- https://deb.nodesource.com/setup_11.x| sudo -E bash -
 RUN sudo apt update && sudo apt -y install nodejs && sudo npm i -g npm
 
 EXPOSE 1337 3000 4200 5000 9000 8003
